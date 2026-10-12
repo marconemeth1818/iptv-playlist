@@ -34,6 +34,16 @@ UA_V_URL = False
 ANTIK_ZRKADLA = ["88.212.15.17", "88.212.15.29", "88.212.15.19", "88.212.15.27"]
 ANTIK_NEFUNKCNE = ["88.212.15.19"]   # 503 od 12. 10. 2026
 
+# Antik servery (88.212.x.x) vyžadujú User-Agent prehliadača – doplní sa aj tam, kde ho zdroj nemá.
+ANTIK_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+
+# Servery, ktoré nefungujú – ich linky sa preskočia a použije sa záloha z iného zdroja.
+# Kanál, ktorý inú zálohu nemá, sa z playlistu vynechá (vypíše sa v logu ako "Nenájdené").
+# Keď server znova ožije, stačí ho zo zoznamu zmazať.
+NEFUNKCNE_HOSTY = [
+    "sktv.mxnticek.eu",   # nefunguje od 12. 10. 2026 (Nova, JOJ, Markíza Doma/Dajto/Krimi, TA3...)
+]
+
 # (zobrazovaný názov, [zdroje v poradí priority])
 SPORT = [
     ("Arena4", ["io:Arena4.hu@SD"]),
@@ -226,7 +236,12 @@ for url in ZDROJE["ft"]:
         kanaly.setdefault("ft:" + k, e)
 
 celkom = sum(len(z) for _, z in SKUPINY)
-najdi = lambda zdroje: next((kanaly[z] for z in zdroje if z in kanaly), None)
+def najdi(zdroje):
+    for z in zdroje:
+        e = kanaly.get(z)
+        if e and not any(h in e[2] for h in NEFUNKCNE_HOSTY):
+            return e
+    return None
 najdene = sum(1 for _, z in SKUPINY for _, zdroje in z if najdi(zdroje))
 
 # Poistka: ak zdroje vrátia výrazne menej kanálov, súbor neprepisuj
@@ -281,6 +296,9 @@ with open(VYSTUP, "w", encoding="utf-8") as f:
                 extinf = extinf.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{skupina}"', 1)
             extinf = extinf.rsplit('",', 1)[0] + '",' + nazov
             ua = next((x.split("=", 1)[1] for x in extra if x.startswith("#EXTVLCOPT:http-user-agent=")), None)
+            if not ua and url.startswith("http://88.212."):
+                ua = ANTIK_UA
+                extra = extra + ["#EXTVLCOPT:http-user-agent=" + ua]
             if ua:
                 for atr in ("user-agent", "http-user-agent"):
                     if not re.search(r'[ "]' + atr + '="', extinf):
