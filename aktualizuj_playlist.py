@@ -9,6 +9,7 @@ Každý kanál má zoznam zdrojov – použije sa prvý, ktorý existuje, ostatn
 import re
 import sys
 import urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 import urllib.request
 
 ZDROJE = {
@@ -26,12 +27,12 @@ VYSTUP = "IPTV_Sport_Madarske.m3u"
 # ale aplikácie, ktoré ho nepoznajú (napr. niektoré na Samsung/LG), potom stream neotvoria.
 UA_V_URL = False
 
-# Náhrada nefunkčných serverov za funkčné zrkadlá (rovnaká cesta, iná IP).
-# 88.212.15.19 (Antik) vracia 503, .17 a .29 fungujú – overené 12. 10. 2026.
-# Ak prestane fungovať .17, stačí ho tu prepísať na "http://88.212.15.29/".
-NAHRADY_SERVEROV = {
-    "http://88.212.15.19/": "http://88.212.15.17/",
-}
+# Zrkadlá Antiku – rovnaké cesty na rôznych IP. Pri každom behu sa pre každý stream
+# vyskúšajú v tomto poradí a použije sa prvé, ktoré odpovie 200.
+# Ak neodpovie žiadne (napr. GitHub server v USA je blokovaný), link ostane pôvodný –
+# okrem serverov v ANTIK_NEFUNKCNE, tie sa prepíšu na prvé zrkadlo v zozname.
+ANTIK_ZRKADLA = ["88.212.15.17", "88.212.15.29", "88.212.15.19", "88.212.15.27"]
+ANTIK_NEFUNKCNE = ["88.212.15.19"]   # 503 od 12. 10. 2026
 
 # (zobrazovaný názov, [zdroje v poradí priority])
 SPORT = [
@@ -232,6 +233,38 @@ najdene = sum(1 for _, z in SKUPINY for _, zdroje in z if najdi(zdroje))
 if najdene < celkom // 2:
     sys.exit(f"Chyba: nájdených len {najdene}/{celkom} kanálov, playlist neprepisujem.")
 
+# --- výber funkčného Antik zrkadla pre každý stream ---
+UA_TEST = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+ANTIK_RE = re.compile(r"^http://(" + "|".join(re.escape(ip) for ip in ANTIK_ZRKADLA) + r")(/.*)$")
+
+
+def odpoveda(url):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA_TEST})
+        with urllib.request.urlopen(req, timeout=8) as r:
+            return r.status == 200
+    except Exception:
+        return False
+
+
+def vyber_zrkadlo(url):
+    povodna_ip, cesta = ANTIK_RE.match(url).groups()
+    for ip in ANTIK_ZRKADLA:
+        if odpoveda(f"http://{ip}{cesta}"):
+            return url, f"http://{ip}{cesta}", True
+    if povodna_ip in ANTIK_NEFUNKCNE:
+        return url, f"http://{ANTIK_ZRKADLA[0]}{cesta}", False
+    return url, url, False
+
+
+antik_urls = {e[2] for _, z in SKUPINY for _, zdroje in z
+              for e in [najdi(zdroje)] if e and ANTIK_RE.match(e[2])}
+with ThreadPoolExecutor(16) as ex:
+    vysledky = list(ex.map(vyber_zrkadlo, antik_urls))
+antik = {stary: novy for stary, novy, _ in vysledky}
+overene = sum(1 for *_, ok in vysledky if ok)
+print(f"Antik streamy: {overene}/{len(vysledky)} overených, zvyšok bez odozvy (použitá záloha)")
+
 chyba = []
 with open(VYSTUP, "w", encoding="utf-8") as f:
     f.write("#EXTM3U\n")
@@ -241,9 +274,7 @@ with open(VYSTUP, "w", encoding="utf-8") as f:
             if not e:
                 chyba.append(nazov); continue
             extinf, extra, url = e
-            for stary, novy in NAHRADY_SERVEROV.items():
-                if url.startswith(stary):
-                    url = novy + url[len(stary):]
+            url = antik.get(url, url)
             if 'group-title="' in extinf:
                 extinf = re.sub(r'group-title="[^"]*"', f'group-title="{skupina}"', extinf)
             else:
