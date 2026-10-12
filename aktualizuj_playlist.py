@@ -26,6 +26,13 @@ VYSTUP = "IPTV_Sport_Madarske.m3u"
 # ale aplikácie, ktoré ho nepoznajú (napr. niektoré na Samsung/LG), potom stream neotvoria.
 UA_V_URL = False
 
+# Náhrada nefunkčných serverov za funkčné zrkadlá (rovnaká cesta, iná IP).
+# 88.212.15.19 (Antik) vracia 503, .17 a .29 fungujú – overené 12. 10. 2026.
+# Ak prestane fungovať .17, stačí ho tu prepísať na "http://88.212.15.29/".
+NAHRADY_SERVEROV = {
+    "http://88.212.15.19/": "http://88.212.15.17/",
+}
+
 # (zobrazovaný názov, [zdroje v poradí priority])
 SPORT = [
     ("Arena4", ["io:Arena4.hu@SD"]),
@@ -234,6 +241,9 @@ with open(VYSTUP, "w", encoding="utf-8") as f:
             if not e:
                 chyba.append(nazov); continue
             extinf, extra, url = e
+            for stary, novy in NAHRADY_SERVEROV.items():
+                if url.startswith(stary):
+                    url = novy + url[len(stary):]
             if 'group-title="' in extinf:
                 extinf = re.sub(r'group-title="[^"]*"', f'group-title="{skupina}"', extinf)
             else:
