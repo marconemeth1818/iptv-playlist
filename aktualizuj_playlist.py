@@ -8,6 +8,7 @@ Každý kanál má zoznam zdrojov – použije sa prvý, ktorý existuje, ostatn
 """
 import re
 import sys
+import urllib.parse
 import urllib.request
 
 ZDROJE = {
@@ -18,6 +19,12 @@ ZDROJE = {
            "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_czech_republic.m3u8"],
 }
 VYSTUP = "IPTV_Sport_Madarske.m3u"
+
+# User-Agent pre streamy, ktoré ho vyžadujú. Zapisuje sa vo viacerých formátoch,
+# lebo každá TV aplikácia číta iný; tie, ktoré formát nepoznajú, ho ignorujú.
+# UA_V_URL = True pridá aj zápis "url|User-Agent=..." (Kodi, TiviMate, OTT Navigator),
+# ale aplikácie, ktoré ho nepoznajú (napr. niektoré na Samsung/LG), potom stream neotvoria.
+UA_V_URL = False
 
 # (zobrazovaný názov, [zdroje v poradí priority])
 SPORT = [
@@ -232,6 +239,14 @@ with open(VYSTUP, "w", encoding="utf-8") as f:
             else:
                 extinf = extinf.replace("#EXTINF:-1", f'#EXTINF:-1 group-title="{skupina}"', 1)
             extinf = extinf.rsplit('",', 1)[0] + '",' + nazov
+            ua = next((x.split("=", 1)[1] for x in extra if x.startswith("#EXTVLCOPT:http-user-agent=")), None)
+            if ua:
+                for atr in ("user-agent", "http-user-agent"):
+                    if not re.search(r'[ "]' + atr + '="', extinf):
+                        extinf = extinf.replace("#EXTINF:-1", f'#EXTINF:-1 {atr}="{ua}"', 1)
+                extra = extra + ['#EXTHTTP:{"User-Agent":"%s"}' % ua]
+                if UA_V_URL:
+                    url = url + "|User-Agent=" + urllib.parse.quote(ua)
             f.write(extinf + "\n" + "".join(x + "\n" for x in extra) + url + "\n")
 
 print(f"Hotovo: {VYSTUP} ({najdene}/{celkom} kanálov)")
