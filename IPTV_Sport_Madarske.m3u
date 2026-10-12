@@ -30,7 +30,7 @@ http://88.212.15.17/live/spiler1/index.m3u8
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
 http://88.212.15.17/live/spiler2/index.m3u8
 #EXTINF:-1 tvg-id="Sport.sk@SD" tvg-logo="https://i.imgur.com/oAtcxNZ.png" group-title="Šport",:sport (STV)
-http://88.212.15.27/live/test_rtvs_sport_hevc/playlist.m3u8
+http://88.212.15.17/live/test_rtvs_sport_hevc/playlist.m3u8
 #EXTINF:-1 tvg-name="JOJ Šport" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovakia/joj-sport-sk.png" tvg-id="JOJSport.sk" tvg-chno="11" tvg-country="SK" group-title="Šport",JOJ Šport
 https://sktv.mxnticek.eu/new/stream.php?ch=JOJ%20%C5%A0port
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.3" tvg-id="ArenaSport1.sk@SD" tvg-logo="https://i.imgur.com/2qf67zW.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.3" group-title="Šport",Arena Sport 1
@@ -264,9 +264,9 @@ http://88.212.15.17/live/test_filmbox_plus_atk_1200/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" tvg-id="ViasatEpicDrama.uk@Czechia" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/e1/Viasat_Epic_Drama_2026.svg" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="České",Viasat Epic Drama
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/test_epic_drama_atk_tv/playlist.m3u8
+http://88.212.15.17/live/test_epic_drama_atk_tv/playlist.m3u8
 #EXTINF:-1 tvg-id="BBCEarth.uk@Czechia" tvg-logo="https://i.imgur.com/nGSsUd4.png" group-title="České",BBC Earth
-http://88.212.15.29/live/test_bbc_eartch_hevc/playlist.m3u8
+http://88.212.15.17/live/test_bbc_eartch_hevc/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.3" tvg-id="History.cz@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.3" group-title="České",History
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.3
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.3"}
@@ -282,7 +282,7 @@ http://88.212.15.17/live/test_ngc/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" tvg-id="NationalGeographicWild.cz@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/National_Geographic_Wild_logo.svg/960px-National_Geographic_Wild_logo.svg.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="České",National Geographic Wild
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/test_ngw/playlist.m3u8
+http://88.212.15.17/live/test_ngw/playlist.m3u8
 #EXTINF:-1 tvg-id="Spektrum.cz@SD" tvg-logo="https://i.imgur.com/F5Uosum.png" group-title="České",Spektrum
 http://88.212.15.17/live/test_spektrum/playlist.m3u8
 #EXTINF:-1 tvg-id="SpektrumHome.cz@SD" tvg-logo="https://i.imgur.com/VaVi65F.png" group-title="České",Spektrum Home
@@ -290,15 +290,15 @@ http://88.212.15.17/live/test_home_hevc/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" tvg-id="ViasatExplore.cz@SD" tvg-logo="https://i.imgur.com/DyT5pKB.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="České",Viasat Explore
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/test_viasat_explore_atk_tv/playlist.m3u8
+http://88.212.15.17/live/test_viasat_explore_atk_tv/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" tvg-id="ViasatHistory.cz@SD" tvg-logo="https://i.imgur.com/wRP9XA7.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="České",Viasat History
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/test_viasat_history_atk_tv/playlist.m3u8
+http://88.212.15.17/live/test_viasat_history_atk_tv/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" tvg-id="ViasatNature.cz@SD" tvg-logo="https://i.imgur.com/ousRqqD.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="České",Viasat Nature
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/test_viasat_nature_atk_tv/playlist.m3u8
+http://88.212.15.17/live/test_viasat_nature_atk_tv/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" tvg-id="TVPaprika.cz@SD" tvg-logo="https://i.imgur.com/NSabYyT.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="České",TV Paprika
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
