@@ -37,9 +37,9 @@ ANTIK_NEFUNKCNE = ["88.212.15.19"]   # 503 od 12. 10. 2026
 # Antik servery (88.212.x.x) vyžadujú User-Agent prehliadača – doplní sa aj tam, kde ho zdroj nemá.
 ANTIK_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 
-# Servery, ktoré nefungujú – ich linky sa preskočia a použije sa záloha z iného zdroja.
-# Kanál, ktorý inú zálohu nemá, sa z playlistu vynechá (vypíše sa v logu ako "Nenájdené").
-# Keď server znova ožije, stačí ho zo zoznamu zmazať.
+# Nespoľahlivé servery – ich linky sa pri každom behu otestujú. Ak stream odpovie, použije sa;
+# ak nie, použije sa záloha z iného zdroja. Kanál bez funkčnej zálohy sa z playlistu vynechá
+# (v logu "Nenájdené") a vráti sa sám, keď server ožije.
 NEFUNKCNE_HOSTY = [
     "sktv.mxnticek.eu",   # nefunguje od 12. 10. 2026 (Nova, JOJ, Markíza Doma/Dajto/Krimi, TA3...)
 ]
@@ -236,21 +236,7 @@ for url in ZDROJE["ft"]:
         kanaly.setdefault("ft:" + k, e)
 
 celkom = sum(len(z) for _, z in SKUPINY)
-def najdi(zdroje):
-    for z in zdroje:
-        e = kanaly.get(z)
-        if e and not any(h in e[2] for h in NEFUNKCNE_HOSTY):
-            return e
-    return None
-najdene = sum(1 for _, z in SKUPINY for _, zdroje in z if najdi(zdroje))
-
-# Poistka: ak zdroje vrátia výrazne menej kanálov, súbor neprepisuj
-if najdene < celkom // 2:
-    sys.exit(f"Chyba: nájdených len {najdene}/{celkom} kanálov, playlist neprepisujem.")
-
-# --- výber funkčného Antik zrkadla pre každý stream ---
 UA_TEST = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
-ANTIK_RE = re.compile(r"^http://(" + "|".join(re.escape(ip) for ip in ANTIK_ZRKADLA) + r")(/.*)$")
 
 
 def odpoveda(url):
@@ -260,6 +246,33 @@ def odpoveda(url):
             return r.status == 200
     except Exception:
         return False
+
+
+# --- test streamov na nespoľahlivých serveroch ---
+podozrive = {kanaly[z][2] for _, zoznam in SKUPINY for _, zdroje in zoznam for z in zdroje
+             if z in kanaly and any(h in kanaly[z][2] for h in NEFUNKCNE_HOSTY)}
+with ThreadPoolExecutor(16) as ex:
+    zive = {u for u, ok in zip(podozrive, ex.map(odpoveda, podozrive)) if ok}
+print(f"Nespoľahlivé servery: {len(zive)}/{len(podozrive)} streamov odpovedá")
+
+
+def najdi(zdroje):
+    for z in zdroje:
+        e = kanaly.get(z)
+        if not e:
+            continue
+        if any(h in e[2] for h in NEFUNKCNE_HOSTY) and e[2] not in zive:
+            continue
+        return e
+    return None
+najdene = sum(1 for _, z in SKUPINY for _, zdroje in z if najdi(zdroje))
+
+# Poistka: ak zdroje vrátia výrazne menej kanálov, súbor neprepisuj
+if najdene < celkom // 2:
+    sys.exit(f"Chyba: nájdených len {najdene}/{celkom} kanálov, playlist neprepisujem.")
+
+# --- výber funkčného Antik zrkadla pre každý stream ---
+ANTIK_RE = re.compile(r"^http://(" + "|".join(re.escape(ip) for ip in ANTIK_ZRKADLA) + r")(/.*)$")
 
 
 def vyber_zrkadlo(url):
