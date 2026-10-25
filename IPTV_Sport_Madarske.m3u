@@ -67,6 +67,8 @@ http://rpprod.hbbtv.cdn.cra.cz:8080/hbbTV/cme-sk-canal-plus-sport8/live_fullhd?o
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
 http://88.212.15.29/live/test_ctsport_25p/playlist.m3u8
+#EXTINF:-1 tvg-name="ČT sport Plus" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/ct-sport-cz.png" tvg-chno="7" tvg-country="CZ" group-title="Šport",ČT Sport Plus
+https://sktv.mxnticek.eu/new/stream.php?ch=%C4%8CT%20sport%20Plus
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" tvg-id="Eurosport4KCzechia.cz@UHD" tvg-logo="https://i.imgur.com/0o3zjC7.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" group-title="Šport",Eurosport 4K
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
@@ -91,16 +93,20 @@ http://88.212.15.29/live/test_jednotka_25p/playlist.m3u8
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"}
 http://88.212.15.29/live/test_dvojka_25p/playlist.m3u8
-#EXTINF:-1 http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" tvg-id="24.sk@SD" tvg-logo="https://i.imgur.com/tTCuczU.png" group-title="Slovenské",STVR :24
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/test_trojka_25p/playlist.m3u8
+#EXTINF:-1 tvg-name="STVR :24" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovakia/rtvs-24-sk.png" tvg-id="RTVS24.sk" tvg-chno="15" tvg-country="SK" group-title="Slovenské",STVR :24
+https://sktv.mxnticek.eu/new/stream.php?ch=STVR%20%3A24
+#EXTINF:-1 tvg-name="STVR :O" tvg-logo=" :" tvg-chno="17" tvg-country="SK" group-title="Slovenské",STVR :O
+https://sktv.mxnticek.eu/new/stream.php?ch=STVR%20%3AO
+#EXTINF:-1 tvg-name="STVR Live" tvg-logo=" Liv" tvg-chno="19" tvg-country="SK" group-title="Slovenské",STVR Live
+https://sktv.mxnticek.eu/new/stream.php?ch=STVR%20Live
 #EXTINF:-1 tvg-name="NR SR" tvg-logo="" tvg-chno="18" tvg-country="SK" group-title="Slovenské",NR SR
 https://n11.stv.livebox.sk/stv-tv/stv4.stream/playlist.m3u8
 #EXTINF:-1 tvg-name="Markíza" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovakia/markiza-sk.png" tvg-id="Markiza.sk" tvg-chno="1" tvg-country="SK" group-title="Slovenské",Markíza
 https://cdnsk003.panaccess.com/local/Markiza/index.m3u8
 #EXTINF:-1 tvg-name="Klasik" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovakia/markiza-sk.png" tvg-chno="5" tvg-country="SK" group-title="Slovenské",Markíza Klasik
 https://cdnsk003.panaccess.com/local/Markiza_Klasik/index.m3u8
+#EXTINF:-1 tvg-name="TA3" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/slovakia/ta3-sk.png" tvg-id="TA3.sk" tvg-chno="20" tvg-country="SK" group-title="Slovenské",TA3
+https://sktv.mxnticek.eu/new/stream.php?ch=TA3
 #EXTINF:-1 tvg-id="AntikInfoTV.sk@HD" tvg-logo="https://i.imgur.com/Q0qL60o.png" group-title="Slovenské",Antik Info TV
 https://dash4.antik.sk/live/test_infokanal_tizen/playlist.m3u8
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" tvg-id="PrimaSK.sk@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/fc/PRIMA_SK_logo_RGB.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="Slovenské",Prima SK
@@ -131,14 +137,22 @@ http://88.212.15.29/live/test_ct2_25p/playlist.m3u8
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
 http://88.212.15.29/live/test_ct24_hevc/playlist.m3u8
-#EXTINF:-1 http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" tvg-id="CTDecko.cz@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/%C4%8CT-D_logo.svg/960px-%C4%8CT-D_logo.svg.png" group-title="České",ČT :D
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/ct_art_avc_25p/playlist.m3u8
+#EXTINF:-1 tvg-name="ČT :D" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/ct-d-cz.png" tvg-id="CTDecko.cz" tvg-chno="5" tvg-country="CZ" group-title="České",ČT :D
+https://sktv.mxnticek.eu/new/stream.php?ch=CT_D
+#EXTINF:-1 tvg-name="TV Nova" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/nova-cz.png" tvg-id="tvnova.cz" tvg-chno="8" tvg-country="CZ" group-title="České",TV Nova
+https://sktv.mxnticek.eu/new/stream.php?ch=Nova
+#EXTINF:-1 tvg-name="Nova Cinema" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/nova-cinema-cz.png" tvg-id="NovaCinema.cz" tvg-chno="9" tvg-country="CZ" group-title="České",Nova Cinema
+https://sktv.mxnticek.eu/new/stream.php?ch=NovaCinema
 #EXTINF:-1 tvg-name="Nova Action" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/nova-action-cz.png" tvg-id="NovaAction.cz" tvg-chno="10" tvg-country="CZ" group-title="České",Nova Action
 https://sktv.mxnticek.eu/new/stream.php?ch=NovaAction
+#EXTINF:-1 tvg-name="Nova Fun" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/nova-fun-cz.png" tvg-id="NovaFun.cz" tvg-chno="11" tvg-country="CZ" group-title="České",Nova Fun
+https://sktv.mxnticek.eu/new/stream.php?ch=NovaFun
 #EXTINF:-1 tvg-name="Nova Gold" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/nova-gold-cz.png" tvg-id="NovaGold.cz" tvg-chno="12" tvg-country="CZ" group-title="České",Nova Gold
 https://sktv.mxnticek.eu/new/stream.php?ch=NovaGold
+#EXTINF:-1 tvg-name="Nova Lady" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/nova-lady-cz.png" tvg-id="NovaLady.cz" tvg-chno="13" tvg-country="CZ" group-title="České",Nova Lady
+https://sktv.mxnticek.eu/new/stream.php?ch=NovaLady
+#EXTINF:-1 tvg-name="TN Live" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/nova-cz.png" tvg-chno="14" tvg-country="CZ" group-title="České",TN Live
+https://sktv.mxnticek.eu/new/stream.php?ch=Nova%20TN%20Live
 #EXTINF:-1 http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" tvg-id="Prima.cz@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Prima_2013.png/960px-Prima_2013.png" group-title="České",Prima
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
@@ -157,10 +171,8 @@ http://88.212.15.29/live/prima_love_cz_avc/index.m3u8
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
 http://88.212.15.29/live/test_prima_star_hevc_25p/playlist.m3u8
-#EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" tvg-id="PrimaKrimi.cz@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Prima_Krimi.png/960px-Prima_Krimi.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" group-title="České",Prima Krimi
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
-#EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
-http://88.212.15.29/live/test_prima_krimi_cz/playlist.m3u8
+#EXTINF:-1 tvg-name="Prima Krimi" tvg-logo="https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/czech-republic/prima-krimi-cz.png" tvg-id="PrimaKrimi.cz" tvg-chno="20" tvg-country="CZ" group-title="České",Prima Krimi
+https://sktv.mxnticek.eu/new/stream.php?ch=PrimaKrimi
 #EXTINF:-1 user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" tvg-id="PrimaMax.cz@SD" tvg-logo="https://i.imgur.com/ePrdyLi.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" group-title="České",Prima Max
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
 #EXTHTTP:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
